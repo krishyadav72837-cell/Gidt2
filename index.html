@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="ne">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>💖 Cinematic Love For Aakriti 💖</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:white;overflow:hidden;color:#e60026}
+
+/* cinematic intro */
+#intro{
+position:fixed;inset:0;
+background:radial-gradient(circle,#fff,#ffe6ec);
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+z-index:999
+}
+#intro h1{font-size:2.2rem;animation:fadeIn 2s ease}
+#intro button{
+margin-top:20px;padding:12px 25px;border:none;border-radius:30px;
+background:#e60026;color:white;font-size:16px;cursor:pointer
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
+
+/* main */
+#main{display:none;position:relative;height:100vh;overflow-y:auto;padding:20px}
+
+h2{text-align:center;margin:20px 0}
+
+.gallery{display:flex;flex-wrap:wrap;justify-content:center}
+.gallery img{
+width:90%;max-width:260px;margin:10px;border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+animation:floatImg 4s ease-in-out infinite
+}
+
+@keyframes floatImg{
+0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}
+}
+
+.letter{
+background:#fff0f3;padding:20px;margin:20px auto;border-radius:20px;
+max-width:500px;box-shadow:0 10px 30px rgba(0,0,0,0.1)
+}
+
+.btn{
+padding:12px 20px;border:none;border-radius:30px;margin:10px;
+cursor:pointer;font-size:16px
+}
+.yes{background:#e60026;color:white}
+.no{background:#444;color:white;position:absolute}
+
+.chat{max-width:320px;margin:20px auto;background:#f7f7f7;border-radius:20px;padding:10px}
+.msg{margin:6px;padding:10px;border-radius:12px}
+.me{background:#e60026;color:white;text-align:right}
+.her{background:#ddd}
+
+/* hearts */
+.heart{
+position:fixed;bottom:-20px;font-size:18px;color:red;
+animation:rise 6s linear infinite
+}
+@keyframes rise{
+0%{transform:translateY(0) scale(1);opacity:1}
+100%{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+
+/* cinematic flash */
+.flash{
+position:fixed;inset:0;background:white;opacity:0;pointer-events:none
+}
+
+</style></head><body><div id="intro">
+<h1>💖 For Aakriti Shrestha 💖</h1>
+<button onclick="start()">Enter Your Story 💌</button>
+</div><div id="main"><h2 id="typing"></h2><div class="gallery">
+<img src="image1.png" onerror="this.src='https://via.placeholder.com/250?text=1'" />
+<img src="image2.png" onerror="this.src='https://via.placeholder.com/250?text=2'" />
+<img src="image3.png" onerror="this.src='https://via.placeholder.com/250?text=3'" />
+</div><div class="letter">
+तिमी मेरो जीवनको सबैभन्दा सुन्दर अध्याय हौ ❤️<br>
+तिमी बिना मेरो संसार अधुरो छ 💫<br>
+I don’t just love you… I choose you every day 💖
+</div><h2>Do you love me? 😏</h2>
+<button class="btn yes" onclick="yes()">Umm 💖</button>
+<button class="btn no" id="noBtn">Xaina 😜</button><div id="chat" class="hidden">
+<h2>Memories 💬</h2>
+<div class="chat">
+<div class="msg her">Hi 😘</div>
+<div class="msg me">Miss you 💖</div>
+<div class="msg her">K garxau?</div>
+<div class="msg me">Dreaming about you ❤️</div>
+</div>
+</div><div id="proposal" class="hidden">
+<h2>Will you marry me? 💍</h2>
+<button class="btn yes" onclick="final()">YES 💖</button>
+</div><div id="end" class="hidden">
+<h1>💞 Forever Starts Here 💞</h1>
+<p>I will love you in every lifetime ❤️</p>
+</div></div><div class="flash" id="flash"></div><script>
+
+function start(){
+ document.getElementById('intro').style.display='none';
+ document.getElementById('main').style.display='block';
+ type();
+}
+
+// typing cinematic
+const text="तिमी मेरो सपना, मेरो संसार, मेरो सबै कुरा हौ ❤️";
+let i=0;
+function type(){
+ if(i<text.length){
+  document.getElementById('typing').innerHTML+=text[i++];
+  setTimeout(type,60);
+ }
+}
+
+// runaway no button
+const noBtn=document.getElementById('noBtn');
+noBtn.addEventListener('mouseover',()=>{
+ noBtn.style.left=Math.random()*80+"%";
+ noBtn.style.top=Math.random()*80+"%";
+});
+
+function flashEffect(){
+ let f=document.getElementById('flash');
+ f.style.opacity=1;
+ setTimeout(()=>f.style.opacity=0,200);
+}
+
+function yes(){
+ flashEffect();
+ document.getElementById('chat').style.display='block';
+ setTimeout(()=>document.getElementById('proposal').style.display='block',2000);
+}
+
+function final(){
+ flashEffect();
+ document.getElementById('proposal').style.display='none';
+ document.getElementById('end').style.display='block';
+}
+
+// floating hearts
+function heart(){
+ let h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤️';
+ h.style.left=Math.random()*100+'vw';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,200);
+
+</script></body>
+</html>
