@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Love For Aakriti ❤️</title>
+<style>
+body{margin:0;font-family:sans-serif;background:white;overflow:hidden;text-align:center}
+.screen{position:fixed;width:100%;height:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;background:white;z-index:10}
+.hidden{display:none}
+h1{color:#e60026}
+.btn{padding:12px 25px;border:none;border-radius:25px;font-size:1rem;cursor:pointer;margin:10px}
+.yes{background:#e60026;color:#fff}
+.no{background:#555;color:#fff;position:absolute}
+.gallery img{width:90%;max-width:260px;border-radius:20px;margin:10px;box-shadow:0 10px 20px rgba(0,0,0,.2)}
+.heart{position:fixed;color:red;font-size:20px;animation:floatUp 6s linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh);opacity:1}100%{transform:translateY(-10vh);opacity:0}}
+.love-msg{font-size:1.8rem;color:#e60026}
+#chat{max-width:300px;margin:auto;background:#f5f5f5;border-radius:15px;padding:10px}
+.msg{padding:8px;margin:5px;border-radius:10px}
+.me{background:#e60026;color:white;text-align:right}
+.her{background:#ddd;text-align:left}
+</style>
+</head>
+<body><!-- Intro --><div id="intro" class="screen">
+<h1>For Aakriti 💖</h1>
+<button class="btn yes" onclick="startSite()">Open 💌</button>
+</div><!-- Main --><div id="main" class="hidden">
+<h1>❤️ Aakriti Shrestha ❤️</h1>
+<p id="typing"></p><div class="gallery">
+<img src="image1.png">
+<img src="image2.png">
+<img src="image3.png">
+</div><h2>Do you love me? 😘</h2>
+<button class="btn yes" onclick="sayYes()">Umm 💖</button>
+<button class="btn no" id="noBtn">Xaina 😜</button><div id="result" class="hidden">
+<p class="love-msg">💖 I LOVE YOU FOREVER 💖</p>
+</div>
+</div><!-- Chat --><div id="chatScreen" class="screen hidden">
+<h1>Our Chats 💬</h1>
+<div id="chat">
+<div class="msg her">Hi 😘</div>
+<div class="msg me">Miss you 💖</div>
+<div class="msg her">I love you</div>
+<div class="msg me">More than anything ❤️</div>
+</div>
+<button class="btn yes" onclick="nextProposal()">Next ➡️</button>
+</div><!-- Proposal --><div id="proposal" class="screen hidden">
+<h1>Will you marry me? 💍</h1>
+<button class="btn yes" onclick="finalYes()">YES 💖</button>
+</div><script>
+function startSite(){intro.classList.add('hidden');main.classList.remove('hidden');type();}
+
+const text="तिमी मेरो संसार हौ ❤️";let i=0;
+function type(){if(i<text.length){typing.innerHTML+=text.charAt(i);i++;setTimeout(type,50);}}
+
+const noBtn=document.getElementById('noBtn');
+noBtn.style.left='60%';noBtn.style.top='70%';
+noBtn.addEventListener('mouseover',()=>{
+noBtn.style.left=Math.random()*(window.innerWidth-100)+'px';
+noBtn.style.top=Math.random()*(window.innerHeight-50)+'px';});
+
+function sayYes(){result.classList.remove('hidden');setTimeout(()=>{main.classList.add('hidden');chatScreen.classList.remove('hidden');},2000)}
+
+function nextProposal(){chatScreen.classList.add('hidden');proposal.classList.remove('hidden');}
+
+function finalYes(){alert('Forever starts now ❤️');}
+
+function createHeart(){const h=document.createElement('div');h.className='heart';h.innerText='❤️';h.style.left=Math.random()*100+'vw';document.body.appendChild(h);setTimeout(()=>h.remove(),6000)}
+setInterval(createHeart,300);
+</script></body>
+  </html>
